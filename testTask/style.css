@@ -1,9 +1,14 @@
+@import url('../testTask/assets/fonts/futura/stylesheet.css');
+
 :root {   
     --color-dark:#172139;
     --color-grey:#F4F4F4;
     --color-white: #FFFFFF;
     --color-black:#000000; 
-    --color-orange:#FF6600;    
+    --color-orange:#FF6600;  
+    --color-lite:#A5A5A5;
+    ;  
+
 }
 
 * {
@@ -16,20 +21,155 @@
     box-sizing: border-box;}
 
 body {
+    background-color: var(--color-grey);
     display: flex;
-    flex-direction: column;    
-    font-family: Arial;
-    font-size: 15px;
-    line-height: 24px;
-    min-height: 100vh;    
-    justify-content: flex-end;
-    background: o;
+    flex-direction: column;   
+    height: 100%;
+    min-height: 100vh; 
 }
 
-.wrapper {
-    width:100%;
-    max-width: 1280px;
-    padding: 0 40px;
-    margin: 0 auto;
+main {
+    flex-grow: 1;
+    padding: 30px;
     position: relative;
 }
+
+
+
+.wrapper {
+ 
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* buttons */
+button {    
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    height: 50px;  
+    width: 197px;
+    border-radius: 5px;
+    font-family: Futura PT;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.1em; 
+    text-transform: uppercase;
+    border: 1px solid var(--color-dark);
+    color: var(--color-dark);
+    background-color: var(--color-white);
+    cursor: pointer;
+    transition: all .3s linear;    
+}
+
+button:hover,
+button:active {
+    background-color: var(--color-dark);
+    color: var(--color-white); 
+}
+
+.active {
+    background-color: var(--color-dark);
+    color: var(--color-white);      
+}
+
+.active .icon {
+    fill: var(--color-white);  
+}
+
+.active:hover .icon {
+    fill: var(--color-dark);  
+}
+
+
+.active:hover {
+    background-color: var(--color-white);
+    color: var(--color-dark);
+}
+
+/*  */
+
+/* header, footer */
+header,
+footer {
+    background-color: var(--color-white);
+    padding: 0 30px;
+    height: 80px;
+    display: flex;    
+    align-items: center; 
+    position: relative;   
+}
+
+header a,
+.linkDoc {
+    margin-left: auto;  
+}
+
+.timeSynchronization {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px; 
+    color: var(--color-lite);
+    flex-wrap: wrap;
+    row-gap: .5em;
+}
+
+.logo {
+    position: relative;
+    height: 42px;
+}
+
+.logo img {
+    position: absolute;
+    top: 10px;
+    left: -15px;
+}
+
+.version {
+    background-color: var(--color-orange);
+    color: var(--color-white);
+    font-family: 'Futura PT';    
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px; 
+    position: absolute;
+    width: 38px;
+    border-radius: 4px;
+    top: -2px;
+    left: 12px;
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.linkDoc a{
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px; 
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--color-orange);
+    text-underline-offset: 3px;
+}
+
+/*  */
+
+
+
+
