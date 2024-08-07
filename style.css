@@ -1,0 +1,35 @@
+:root {
+    --color-yellow: #FBCE51;
+    --color-dark:#1F1F1F;
+    --color-grey:#D6D6D6;
+    --color-blue: #3057A2;
+    --color-red:#F54932;    
+    --color-text:#313131;    
+}
+
+* {
+    margin: 0;
+    padding: 0;}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;}
+
+body {
+    display: flex;
+    flex-direction: column;    
+    font-family: Arial;
+    font-size: 15px;
+    line-height: 24px;
+    min-height: 100vh;    
+    justify-content: flex-end;
+}
+
+.wrapper {
+    width:100%;
+    max-width: 1280px;
+    padding: 0 40px;
+    margin: 0 auto;
+    position: relative;
+}
