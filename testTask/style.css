@@ -1,47 +1,86 @@
 @import url('../testTask/assets/fonts/futura/stylesheet.css');
 
 :root {   
-    --color-dark:#172139;
-    --color-grey:#F4F4F4;
+    --color-dark: #172139;
+    --color-grey: #F4F4F4;
     --color-white: #FFFFFF;
-    --color-black:#000000; 
-    --color-orange:#FF6600;  
-    --color-lite:#A5A5A5;
-    ;  
-
+    --color-black: #000000; 
+    --color-orange: #FF6600;  
+    --color-lite: #A5A5A5;
 }
 
 * {
     margin: 0;
-    padding: 0;}
+    padding: 0;
+}
 
 *,
 *::before,
 *::after {
-    box-sizing: border-box;}
+    box-sizing: border-box;
+}
 
 body {
     background-color: var(--color-grey);
     display: flex;
     flex-direction: column;   
     height: 100%;
-    min-height: 100vh; 
-}
-
-main {
-    flex-grow: 1;
-    padding: 30px;
-    position: relative;
-}
-
-
-
-.wrapper {
- 
+    min-height: 100vh;     
 }
 
 .hidden {
     display: none !important;
+}
+
+.show main,
+.show footer {
+    padding-left: 320px;
+}
+
+h2 {
+    font-family: 'Futura PT';
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 32px;
+    color: var(--color-black);
+    margin-bottom: 25px;
+}
+
+/* main */
+main {
+    flex-grow: 1;
+    padding: 30px;
+    position: relative; 
+}
+
+#sidebar {
+    width: 290px;
+    position: absolute;
+    left: 0;
+    background-color: var(--color-white);
+}
+
+nav li {
+    font-family: 'Futura PT';
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 22px;
+    color: var(--color-dark);
+    display: flex;
+    gap: 16px;
+    padding: 20px 15px;
+    border-bottom: 1px solid var(--color-grey);
+    cursor: pointer;
+    transition: all .3s linear;
+}
+
+nav li.active {
+    cursor: default;
+}
+
+nav li:last-child {
+    color: var(--color-orange);
+    padding-left: 70px;
 }
 
 /* buttons */
@@ -50,10 +89,9 @@ button {
     gap: 10px;
     align-items: center;
     justify-content: center;
-    height: 50px;  
-    width: 197px;
+    height: 50px; 
     border-radius: 5px;
-    font-family: Futura PT;
+    font-family: 'Futura PT';
     font-size: 14px;
     line-height: 16px;
     letter-spacing: 0.1em; 
@@ -66,31 +104,28 @@ button {
 }
 
 button:hover,
-button:active {
+button:active,
+nav li:hover {
     background-color: var(--color-dark);
-    color: var(--color-white); 
+    color: var(--color-white);    
 }
 
-.active {
-    background-color: var(--color-dark);
-    color: var(--color-white);      
+button:hover {
+    transform: translateY(-2px);
 }
 
-.active .icon {
+nav li:hover {
+    transform: translateX(10px);
+}
+
+button.active {
+    background-color: var(--color-dark);
+    color: var(--color-white);        
+}
+
+button.active .icon {
     fill: var(--color-white);  
 }
-
-.active:hover .icon {
-    fill: var(--color-dark);  
-}
-
-
-.active:hover {
-    background-color: var(--color-white);
-    color: var(--color-dark);
-}
-
-/*  */
 
 /* header, footer */
 header,
@@ -112,11 +147,11 @@ header a,
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
     gap: 30px;
-    font-family: Montserrat;
+    font-family: 'Montserrat';
     font-size: 12px;
     font-weight: 500;
     line-height: 15px; 
@@ -156,8 +191,8 @@ header a,
     gap: 20px;
 }
 
-.linkDoc a{
-    font-family: Montserrat;
+.linkDoc a {
+    font-family: 'Montserrat';
     font-size: 16px;
     font-weight: 500;
     line-height: 20px; 
@@ -168,8 +203,67 @@ header a,
     text-underline-offset: 3px;
 }
 
-/*  */
+/* slider */
+#menuItems {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    position: relative;
+}
+
+.item {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    display: none;
+    padding: 20px;
+}
+
+.item.open {
+    display: block;     
+}
 
 
 
+ /* Скрываем стандартный чекбокс */
+ input[type="checkbox"] {
+    display: none;
+}
 
+/* Стиль для пользовательского чекбокса */
+.custom-checkbox {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;    
+    line-height: 20px;    
+}
+
+label {
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;  
+    color: var(--color-black);
+}
+
+/* Стиль для пользовательской "галочки" */
+.custom-checkbox::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;   
+    border-radius: 2px;
+    border: solid 2px var(--color-orange);
+    transition: background 0.3s;   
+    background-size: 12px 12px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Стиль для состояния чекбокса "отмечен" */
+input[type="checkbox"]:checked + .custom-checkbox::before {
+    background: var(--color-orange) no-repeat center ;
+    background-image: url('data:image/svg+xml,%3Csvg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M3.90643 7.05017L0.714844 3.85858L1.94913 2.6243L5.14071 5.81589L3.90643 7.05017Z" fill="%23ffffff"/%3E%3Cpath d="M2.67215 5.81589L7.82105 0.666992L9.05533 1.90127L3.90643 7.05017L2.67215 5.81589Z" fill="%23ffffff"/%3E%3C/svg%3E');
+    background-size: contain;
+}

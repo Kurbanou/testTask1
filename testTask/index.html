@@ -12,9 +12,9 @@
     <link rel="shortcut icon" href="../testTask/assets/img/svg/window.svg" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="show">
     <header>
         <div class="logo">
             <img src="../testTask/assets/img/svg/logo.svg" width="19" alt="logo">
@@ -29,34 +29,64 @@
         <section id="sidebar">
             <nav>
                 <ul>
-                    <li>Имущество</li>
-                    <li>Инвентаризация</li>
-                    <li>Сотрудники</li>
-                    <li>Уведомления</li>
-                    <li>Локации</li>
-                    <li>Настройки</li>
-                </ul>            
+                    <li data-target="item1"><img src="../testTask/assets/img/svg/window.svg" alt="icon">Имущество</li>
+                    <li data-target="item2"><img src="../testTask/assets/img/svg/invent.svg" alt="icon">Инвентаризация</li>
+                    <li data-target="item3"><img src="../testTask/assets/img/svg/contacts.svg" alt="icon">Сотрудники</li>
+                    <li data-target="item4"><img src="../testTask/assets/img/svg/bell.svg" alt="icon">Уведомления</li>
+                    <li class="active" data-target="item5"><img src="../testTask/assets/img/svg/location.svg" alt="icon">Локации</li>
+                    <li data-target="item6"><img src="../testTask/assets/img/svg/settings.svg" alt="icon">Настройки</li>
+                    <li id="hideMenu"><img src="../testTask/assets/img/svg/arrow.svg" alt="icon">Скрыть меню</li>
+                </ul>
             </nav>
         </section>
+        <section id="menuItems">
+            <div class="item" id="item1"><h2>Имущество</h2></div>
+            <div class="item" id="item2"><h2>Инвентаризация</h2></div>
+            <div class="item" id="item3"><h2>Сотрудники / Все сотрудники</h2></div>
+            <div class="item" id="item4">
+                <h2>Уведомления</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dolore qui voluptas ut distinctio! Beatae, fugit atque illo voluptatibus odit quae aliquid molestiae odio consectetur eaque. Maxime et veritatis quibusdam!</p>
+            </div>
+            <div class="item" id="item5">
+                <h2>Локации / Все локации</h2>
+                <div class="form-container">
+                    <form id="myForm">
+                        <div class="form-group">                            
+                            <input type="text" id="search" name="search" placeholder="Поиск">
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox">
+                                <span class="custom-checkbox"></span>
+                                Поиск по точному вхождению
+                            </label>
+                        </div>
+                    </form>
+                </div>
+              
+            </div>
+            <div class="item" id="item6"><h2>Настройки / Локации</h2></div>
+        </section>       
     </main>
     <footer>
         <div class="buttons hidden">
-            <button class="active">                
-                    <svg class="icon" width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1.48676 0H11.5979L14.4811 2.88322C14.627 3.02905 14.7089 3.22685 14.709 3.43311V13.2222C14.709 13.4285 14.627 13.6263 14.4812 13.7722C14.3353 13.9181 14.1375 14 13.9312 14H1.48676C1.28048 14 1.08265 13.9181 0.93679 13.7722C0.790929 13.6263 0.708984 13.4285 0.708984 13.2222V0.777778C0.708984 0.571498 0.790929 0.373667 0.93679 0.227806C1.08265 0.0819442 1.28048 0 1.48676 0ZM7.70898 11.6667C8.32782 11.6667 8.92132 11.4208 9.3589 10.9832C9.79649 10.5457 10.0423 9.95217 10.0423 9.33333C10.0423 8.71449 9.79649 8.121 9.3589 7.68342C8.92132 7.24583 8.32782 7 7.70898 7C7.09015 7 6.49665 7.24583 6.05907 7.68342C5.62148 8.121 5.37565 8.71449 5.37565 9.33333C5.37565 9.95217 5.62148 10.5457 6.05907 10.9832C6.49665 11.4208 7.09015 11.6667 7.70898 11.6667ZM2.26454 1.55556V4.66667H10.0423V1.55556H2.26454Z" />
-                    </svg> 
-                    cохранить      
+            <button class="active" style="width: 198px;">                
+                <svg class="icon" width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.48676 0H11.5979L14.4811 2.88322C14.627 3.02905 14.7089 3.22685 14.709 3.43311V13.2222C14.709 13.4285 14.627 13.6263 14.4812 13.7722C14.3353 13.9181 14.1375 14 13.9312 14H1.48676C1.28048 14 1.08265 13.9181 0.93679 13.7722C0.790929 13.6263 0.708984 13.4285 0.708984 13.2222V0.777778C0.708984 0.571498 0.790929 0.373667 0.93679 0.227806C1.08265 0.0819442 1.28048 0 1.48676 0ZM7.70898 11.6667C8.32782 11.6667 8.92132 11.4208 9.3589 10.9832C9.79649 10.5457 10.0423 9.95217 10.0423 9.33333C10.0423 8.71449 9.79649 8.121 9.3589 7.68342C8.92132 7.24583 8.32782 7 7.70898 7C7.09015 7 6.49665 7.24583 6.05907 7.68342C5.62148 8.121 5.37565 8.71449 5.37565 9.33333C5.37565 9.95217 5.62148 10.5457 6.05907 10.9832C6.49665 11.4208 7.09015 11.6667 7.70898 11.6667ZM2.26454 1.55556V4.66667H10.0423V1.55556H2.26454Z" />
+                </svg> 
+                cохранить      
             </button>
-            <button>отменить</button>                   
+            <button style="width: 194px;">отменить</button>                   
         </div>
         <div class="timeSynchronization hidden">
             <div class="lastAppointment">Последний приём 20.09.2021 18:36:21</div>
             <div class="lastTransmission">Последняя передача  20.09.2021 18:38:21</div>
         </div> 
         <div class="linkDoc">
-            <a href="http:#">
-            <img src="../testTask/assets/img/svg/doc.svg" alt="icon doc">
-            Документация</a>
+            <a href="#">
+                <img src="../testTask/assets/img/svg/doc.svg" alt="icon doc">
+                Документация
+            </a>
         </div>
     </footer>       
     <script src="../testTask/index.js"></script>
