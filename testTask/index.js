@@ -6,10 +6,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuLinks = document.querySelectorAll('#sidebar nav ul li');
     const footerButtons = document.querySelector('footer .buttons');
     const timeSynchronization = document.querySelector('.timeSynchronization');
+    const breadCrumbs = document.getElementById('breadCrumbs');
 
+    // Функция для обновления хлебных крошек
+    function updateBreadCrumbs(text) {
+        // Если хлебные крошки не пусты, добавляем "/"
+        if (breadCrumbs.innerText) {
+            breadCrumbs.innerText = `${breadCrumbs.innerText.split(' / ')[0]} / ${text}`;
+        } else {
+            breadCrumbs.innerText = text;
+        }
+    }
+
+    // Обработка клика по основным элементам навигации
     menuLinks.forEach(link => {
         link.addEventListener('click', function() {
-            // Удалить класс 'active' у всех элементов li
+            // Игнорируем клики на элементе с id="hideMenu"
+            if (link.closest('#hideMenu')) {
+                return;
+            }
+
+            // Удалить класс 'active' у всех элементов li в навигации
             menuLinks.forEach(link => link.classList.remove('active'));
 
             // Добавить класс 'active' к текущему элементу li
@@ -39,6 +56,57 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 timeSynchronization.classList.add('hidden');
             }
+
+            // Установка текста хлебных крошек
+            breadCrumbs.innerText = this.innerText;
         });
+    });
+
+    // Обработка клика по элементам подменю
+    document.querySelectorAll('.subnav li').forEach(subnavItem => {
+        subnavItem.addEventListener('click', function() {
+            const targetSubItemId = this.getAttribute('data-target');
+            
+            // Найти текущий subnav и удалить класс 'active' у всех элементов li
+            const currentSubnav = this.closest('.subnav');
+            currentSubnav.querySelectorAll('li').forEach(li => li.classList.remove('active'));
+
+            // Добавить класс 'active' к текущему элементу li
+            this.classList.add('active');
+
+            // Скрыть все subitem
+            document.querySelectorAll('.subitem').forEach(subitem => {
+                subitem.classList.remove('open');
+            });
+
+            // Показать выбранный subitem
+            const selectedSubitem = document.getElementById(targetSubItemId);
+            if (selectedSubitem) {
+                selectedSubitem.classList.add('open');
+            }
+
+            // Обновление хлебных крошек
+            updateBreadCrumbs(this.innerText);
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const createLocationButton = document.getElementById('createLocation');
+    const popup = document.getElementById('popup');
+    const cancelBtn = document.querySelector('.cancel-btn');
+
+    createLocationButton.addEventListener('click', () => {
+        popup.classList.remove('hidden');
+    });
+
+    cancelBtn.addEventListener('click', () => {
+        popup.classList.add('hidden');
+    });
+
+    popup.addEventListener('click', (event) => {
+        if (event.target === popup) {
+            popup.classList.add('hidden');
+        }
     });
 });

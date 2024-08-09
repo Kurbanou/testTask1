@@ -13,6 +13,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Galdeano&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body class="show">
     <header>
@@ -33,40 +36,124 @@
                     <li data-target="item2"><img src="../testTask/assets/img/svg/invent.svg" alt="icon">Инвентаризация</li>
                     <li data-target="item3"><img src="../testTask/assets/img/svg/contacts.svg" alt="icon">Сотрудники</li>
                     <li data-target="item4"><img src="../testTask/assets/img/svg/bell.svg" alt="icon">Уведомления</li>
-                    <li class="active" data-target="item5"><img src="../testTask/assets/img/svg/location.svg" alt="icon">Локации</li>
+                    <li data-target="item5"><img src="../testTask/assets/img/svg/location.svg" alt="icon">Локации</li>
                     <li data-target="item6"><img src="../testTask/assets/img/svg/settings.svg" alt="icon">Настройки</li>
                     <li id="hideMenu"><img src="../testTask/assets/img/svg/arrow.svg" alt="icon">Скрыть меню</li>
                 </ul>
             </nav>
         </section>
+        <h2 id="breadCrumbs"></h2>
         <section id="menuItems">
-            <div class="item" id="item1"><h2>Имущество</h2></div>
-            <div class="item" id="item2"><h2>Инвентаризация</h2></div>
-            <div class="item" id="item3"><h2>Сотрудники / Все сотрудники</h2></div>
-            <div class="item" id="item4">
-                <h2>Уведомления</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae dolore qui voluptas ut distinctio! Beatae, fugit atque illo voluptatibus odit quae aliquid molestiae odio consectetur eaque. Maxime et veritatis quibusdam!</p>
-            </div>
-            <div class="item" id="item5">
-                <h2>Локации / Все локации</h2>
-                <div class="form-container">
-                    <form id="myForm">
-                        <div class="form-group">                            
-                            <input type="text" id="search" name="search" placeholder="Поиск">
-                        </div>
-                        <div class="form-group">
-                            <label>
-                                <input type="checkbox">
-                                <span class="custom-checkbox"></span>
-                                Поиск по точному вхождению
-                            </label>
-                        </div>
-                    </form>
+            <div class="item" id="item1">
+                <nav class="subnav">
+                    <ul>
+                        <li data-target="subitem1">Subitem 1</li>
+                        <li data-target="subitem2">Subitem 2</li>
+                        <li data-target="subitem3">Subitem 3</li>
+                    </ul>
+                </nav>
+                <div class="submenuItems">
+                    <div class="subitem" id="subitem1">Content for Subitem 1</div>
+                    <div class="subitem" id="subitem2">Content for Subitem 2</div>
+                    <div class="subitem" id="subitem3">Content for Subitem 3</div>
                 </div>
-              
+            </div>        
+            <div class="item" id="item2">
+                <nav class="subnav">
+                    <ul>
+                        <li data-target="subitem4">Item 1</li>
+                        <li data-target="subitem5">Item 2</li>
+                        <li data-target="subitem6">Item 3</li>
+                    </ul>
+                </nav>
+                <div class="submenuItems">
+                    <div class="subitem" id="subitem4">Content for Item 1</div>
+                    <div class="subitem" id="subitem5">Content for Item 2</div>
+                    <div class="subitem" id="subitem6">Content for Item 3</div>
+                </div>
+            </div>        
+            <div class="item" id="item3">
+                <nav class="subnav">
+                    <ul>
+                        <li data-target="subitem7">Item 1</li>
+                        <li data-target="subitem8">Item 2</li>
+                        <li data-target="subitem9">Item 3</li>
+                    </ul>
+                </nav>
+                <div class="submenuItems">
+                    <div class="subitem" id="subitem7">Content for Item 1</div>
+                    <div class="subitem" id="subitem8">Content for Item 2</div>
+                    <div class="subitem" id="subitem9">Content for Item 3</div>
+                </div>
+            </div>        
+            <div class="item" id="item4">
+                <nav class="subnav">
+                    <ul>
+                        <li data-target="subitem10">Item 1</li>
+                        <li data-target="subitem11">Item 2</li>
+                        <li data-target="subitem12">Item 3</li>
+                    </ul>
+                </nav>
+                <div class="submenuItems">
+                    <div class="subitem" id="subitem10">Content for Item 1</div>
+                    <div class="subitem" id="subitem11">Content for Item 2</div>
+                    <div class="subitem" id="subitem12">Content for Item 3</div>
+                </div>
             </div>
-            <div class="item" id="item6"><h2>Настройки / Локации</h2></div>
-        </section>       
+        <!--  -->
+            <div class="item" id="item5">
+                <nav class="subnav">
+                    <ul>
+                        <li data-target="subitem13">Все локации</li>
+                        <li data-target="subitem14">Импорт/Экспорт</li>
+                        <li data-target="subitem15">Настройки</li>
+                    </ul>
+                    <button class="active" style="width: 336px;">
+                        <img src="../testTask/assets/img/svg/rign.svg" alt="">
+                        синхронизация
+                        <span style="font-size: 10px;">(17.05.2024 15:23:21)</span>
+                    </button>
+                </nav>
+                <div class="submenuItems">
+                    <div class="subitem" id="subitem13">
+                        <div class="inner_form">
+                            <button id="createLocation" style="width: 286px;" class="active"><img src="../testTask/assets/img/svg/plus.svg" alt="icon">Создать локацию</button>
+                            
+                            <form id="searchForm">
+                                <div class="form-group">
+                                    <input class="hidden-checkbox" type="checkbox" id="toggle" name="toggle">
+                                    <label for="toggle" class="custom-checkbox"></label>
+                                    <label for="toggle">Поиск по точному вхождению</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="searchInput" name="search" placeholder="ПОИСК">
+                                    <img class="search" src="../testTask/assets/img/svg/lupa.svg" alt="icon">
+                                </div>
+                            </form>
+                            
+                        </div>
+                    </div>
+                    <div class="subitem" id="subitem14">Content for Импорт/Экспорт</div>
+                    <div class="subitem" id="subitem15">Content for Настройки</div>
+                </div>
+            </div>
+        
+            <div class="item" id="item6">
+                <nav class="subnav">
+                    <ul>
+                        <li data-target="subitem16">Item 1</li>
+                        <li data-target="subitem17">Item 2</li>
+                        <li data-target="subitem18">Item 3</li>
+                    </ul>
+                </nav>
+                <div class="submenuItems">
+                    <div class="subitem" id="subitem16">Content for Item 1</div>
+                    <div class="subitem" id="subitem17">Content for Item 2</div>
+                    <div class="subitem" id="subitem18">Content for Item 3</div>
+                </div>
+            </div>
+        </section>
+               
     </main>
     <footer>
         <div class="buttons hidden">
@@ -88,7 +175,43 @@
                 Документация
             </a>
         </div>
-    </footer>       
+    </footer>   
+    <!-- Popup Form -->
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <h3>Создать локацию</h3>
+            <form id="createLocationForm">                
+                    
+                <input placeholder="Название" type="text" id="field1" name="field1" required>
+                    
+                <input placeholder="Штрихкод" type="text" id="field2" name="field2" required> 
+                    
+                <input placeholder="RFID" type="text" id="field3" name="field3" required>                
+                
+                <div class="custom-select">
+                    <select>
+                      <option value="" disabled selected>Вложенность</option>
+                      <option value="option1">Опция 1</option>
+                      <option value="option2">Опция 2</option>
+                      <option value="option3">Опция 3</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <input class="switch" type="checkbox" id="virtualLocation" name="virtualLocation">
+                    <label for="virtualLocation">Виртуальная локация</label>
+                </div>
+                <div class="form-group">
+                    <input class="switch" type="checkbox" id="lostLocation" name="lostLocation">
+                    <label for="lostLocation">Локация для утерь</label>
+                </div>
+                <div class="form-buttons">
+                    <button style="width: 193px;" type="submit" class="submit-btn active"><img src="../testTask/assets/img/svg/save.svg" alt="">Создать</button>
+                    <button style="width: 150px;" type="button" class="cancel-btn">Отменить</button>
+                </div>
+            </form>
+        </div>
+    </div>    
     <script src="../testTask/index.js"></script>
 </body>
 </html>
