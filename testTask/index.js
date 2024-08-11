@@ -110,3 +110,54 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     const locationInner = document.querySelector('.spisok_locations'); 
+//     const liInInner = locationInner.querySelectorAll('li');
+
+//     function hasNestedLi(element) {
+//         return element.querySelector('li') !== null;
+//     }
+
+//     liInInner.forEach(item => {
+//         if (hasNestedLi(item)) {
+//             item.classList.add('toggle')
+//         } else {
+//             console.log(item.innerHTML)
+//         }
+//     });
+
+    
+// })
+
+document.addEventListener('DOMContentLoaded', () => {
+    const locationInner = document.querySelector('.spisok_locations'); 
+    const liInInner = locationInner.querySelectorAll('li');
+
+    function hasNestedLi(element) {
+        return element.querySelector('ul') !== null;
+    }
+
+    function toggleNestedList(event) {
+        const targetLi = event.currentTarget;
+        const nestedList = targetLi.querySelector('ul');
+
+        if (nestedList) {
+            // Переключаем видимость только для непосредственного вложенного списка
+            nestedList.style.display = nestedList.style.display === 'block' ? 'none' : 'block';
+            
+            // Переключаем класс для изменения символа
+            targetLi.classList.toggle('expanded');
+        }
+        
+        // Останавливаем всплытие события, чтобы не обрабатывались вложенные <li>
+        event.stopPropagation();
+    }
+
+    liInInner.forEach(item => {
+        if (hasNestedLi(item)) {
+            item.classList.add('toggle');
+            item.addEventListener('click', toggleNestedList);
+        }
+    });
+});

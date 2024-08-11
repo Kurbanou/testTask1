@@ -35,8 +35,8 @@ body {
 /* Main Content */
 main {
     flex: 1;
-    padding: 20px;
-    background-color: var(--color-white);
+    padding: 30px;
+    background-color: var(--color-grey);
     overflow-y: auto;
 }
 
@@ -501,6 +501,18 @@ select option:first-child {
     align-items: center;
 }
 
+#searchForm input::placeholder,
+#searchForm input{
+    font-family: Futura PT;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17.95px;
+    letter-spacing: 0.1em;
+}
+#searchForm input{
+    color: var(--color-dark);
+}
+
 /* Breadcrumbs */
 #breadCrumbs {
     margin-bottom: 17px;
@@ -544,4 +556,83 @@ select option:first-child {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+
+/* ++++++++++++++++++ */
+/* Убираем стандартные маркеры списка */
+.spisok_locations{
+    margin-top: 43px;
+    margin-left: 25px;
+
+}
+
+.spisok_locations ul {
+    padding: 0;
+    list-style: none;
+    margin: 20px 0;
+}
+
+/* Стиль для элементов списка */
+.spisok_locations li {
+    position: relative; /* Для позиционирования псевдоэлемента */
+    padding-left: 5px; /* Отступ для размещения кружка */
+    margin-bottom: 18px; /* Отступ между элементами списка */
+    cursor: pointer; /* Курсор для кликабельных элементов */
+}
+
+li.toggle {
+    padding-left: 25px; /* Отступ для размещения кружка */
+}
+
+/* Стиль для вложенных элементов */
+.spisok_locations li ul {
+    display: none; /* Скрываем вложенные элементы по умолчанию */
+    padding-left: 20px; /* Отступ для вложенных элементов */
+}
+
+/* Псевдоэлемент ::before для добавления кружка с плюсиком */
+li.toggle::before {
+    content: '+';
+    position: absolute;
+    left: -24px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-orange); /* Цвет кружка */
+    color: #fff; /* Цвет плюсика */
+    text-align: center;
+    line-height: 20px; /* Выравнивание текста по центру вертикально */
+    border-radius: 50%; /* Круглая форма */
+    font-size: 18px; /* Размер шрифта плюсика */
+    font-weight: bold; /* Жирный шрифт для плюсика */
+    font-family: 'Montserrat';
+}
+
+/* Изменение символа при раскрытии */
+li.toggle.expanded::before {
+    content: '-';
+}
+
+.spisok_locations li::after {
+    content: '•\A•\A•'; /* Точки с переносами строк */
+    position: absolute;
+    left: -12px;
+    top: 0;    
+    font-size: 16px; /* Размер точек */
+    color: var(--color-orange); /* Цвет точек */
+    line-height: .4; /* Высота строки для вертикального расположения */
+    white-space: pre; /* Для корректного отображения переносов строки */
+}
+
+/* Псевдоэлемент ::before для добавления трех точек */
+li.toggle::after {
+    content: '•\A•\A•'; /* Точки с переносами строк */
+    position: absolute;
+    left: 10px;
+    top: 0;    
+    font-size: 16px; /* Размер точек */
+    color: var(--color-orange); /* Цвет точек */
+    line-height: .4; /* Высота строки для вертикального расположения */
+    white-space: pre; /* Для корректного отображения переносов строки */
 }
